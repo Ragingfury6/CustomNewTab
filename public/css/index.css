@@ -176,51 +176,6 @@ select {
   gap: 1rem;
 }
 
-.link__card:nth-child(1) {
-  animation: slideIn 250ms ease-in forwards;
-  animation-delay: 100ms;
-}
-
-.link__card:nth-child(2) {
-  animation: slideIn 250ms ease-in forwards;
-  animation-delay: 200ms;
-}
-
-.link__card:nth-child(3) {
-  animation: slideIn 250ms ease-in forwards;
-  animation-delay: 300ms;
-}
-
-.link__card:nth-child(4) {
-  animation: slideIn 250ms ease-in forwards;
-  animation-delay: 400ms;
-}
-
-.link__card:nth-child(5) {
-  animation: slideIn 250ms ease-in forwards;
-  animation-delay: 500ms;
-}
-
-.link__card:nth-child(6) {
-  animation: slideIn 250ms ease-in forwards;
-  animation-delay: 600ms;
-}
-
-.link__card:nth-child(7) {
-  animation: slideIn 250ms ease-in forwards;
-  animation-delay: 700ms;
-}
-
-.link__card:nth-child(8) {
-  animation: slideIn 250ms ease-in forwards;
-  animation-delay: 800ms;
-}
-
-.link__card:nth-child(9) {
-  animation: slideIn 250ms ease-in forwards;
-  animation-delay: 900ms;
-}
-
 @keyframes slideIn {
   from {
     transform: translateX(-5px);

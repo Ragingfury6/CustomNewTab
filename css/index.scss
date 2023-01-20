@@ -106,8 +106,8 @@
 
 @for $i from 1 through 9 {
   .link__card:nth-child(#{$i}) {
-    animation: slideIn 250ms ease-in forwards;
-    animation-delay: ($i * 100ms);
+    // animation: slideIn 250ms ease-in forwards;
+    // animation-delay: ($i * 100ms);
   }
 }
 @keyframes slideIn {
