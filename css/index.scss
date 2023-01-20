@@ -1,0 +1,142 @@
+@use '_reset.scss';
+
+.bg__img {
+  position: fixed;
+  inset: 0;
+  isolation: isolate;
+  z-index: -1;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom center;
+  background-color: rgba(0, 0, 0, 0.25);
+  background-blend-mode: darken;
+  background-image: url('../images/tesla1.webp');
+}
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+  margin-inline: 1rem;
+}
+.link {
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+  &__card {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.35);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(9px);
+    -webkit-backdrop-filter: blur(9px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 1rem 3rem;
+    text-decoration: none;
+    &__usage {
+      font-family: 'Source Sans Pro', sans-serif;
+      font-size: 1rem;
+      color: rgba(69, 69, 69, 0.9);
+      text-align: center;
+    }
+  }
+}
+.heading {
+  &--small,
+  &--subhead {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 2rem;
+    text-align: center;
+    color: #f2f2f2;
+  }
+  &--subhead {
+    font-size: 1.25rem;
+    margin: 0;
+    color: #3a3335;
+  }
+}
+.line__separator {
+  margin-block: 1rem;
+  height: 1px;
+  background: rgba(69, 69, 69, 0.2);
+}
+.portfolio {
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 1rem 5rem;
+  display: block;
+  width: max-content;
+  margin-inline: auto;
+  margin-top: 2rem;
+  cursor: pointer;
+  &__link {
+    text-decoration: none;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 1px;
+    font-weight: 700;
+    color: #3a3335;
+    text-align: center;
+    img {
+      width: 10rem;
+    }
+  }
+}
+.spotify__cards__wrapper {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  padding: 1rem 2rem;
+  gap: 1rem;
+}
+
+@for $i from 1 through 9 {
+  .link__card:nth-child(#{$i}) {
+    animation: slideIn 250ms ease-in forwards;
+    animation-delay: ($i * 100ms);
+  }
+}
+@keyframes slideIn {
+  from {
+    transform: translateX(-5px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+@media screen and (min-width: 60rem) {
+  .link {
+    &__container {
+      flex-direction: row;
+    }
+    &__wrapper {
+      gap: 1rem;
+    }
+  }
+  .links {
+    flex-direction: row;
+  }
+  .spotify__cards__wrapper {
+    grid-template-rows: auto;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  iframe:last-child {
+    grid-column-start: 3;
+  }
+}
