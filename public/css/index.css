@@ -89,7 +89,7 @@ select {
   flex-wrap: wrap;
   justify-content: center;
   flex-direction: column;
-  gap: 2rem;
+  gap: 2.5rem;
   margin-inline: 1rem;
 }
 
@@ -174,11 +174,29 @@ select {
 .spotify__cards__wrapper {
   display: grid;
   grid-template-rows: 1fr 1fr;
+  justify-items: center;
   padding: 1rem 2rem;
   gap: 1rem;
+}
+
+.spotify__cards__wrapper > * {
   opacity: 0;
   translate: 0px -50px;
-  animation: dropIn 1000ms cubic-bezier(0.15, 0.85, 0.38, 1.55) forwards 1150ms;
+}
+
+.spotify__cards__wrapper > *:nth-child(1) {
+  animation: dropIn 1000ms cubic-bezier(0.15, 0.85, 0.38, 1.55) forwards;
+  animation-delay: 1300ms;
+}
+
+.spotify__cards__wrapper > *:nth-child(2) {
+  animation: dropIn 1000ms cubic-bezier(0.15, 0.85, 0.38, 1.55) forwards;
+  animation-delay: 1450ms;
+}
+
+.spotify__cards__wrapper > *:nth-child(3) {
+  animation: dropIn 1000ms cubic-bezier(0.15, 0.85, 0.38, 1.55) forwards;
+  animation-delay: 1600ms;
 }
 
 .container1 > .link__card:nth-child(1) {

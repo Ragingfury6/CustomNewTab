@@ -17,7 +17,7 @@
   flex-wrap: wrap;
   justify-content: center;
   flex-direction: column;
-  gap: 2rem;
+  gap: 2.5rem;
   margin-inline: 1rem;
 }
 .link {
@@ -102,11 +102,19 @@
 .spotify__cards__wrapper {
   display: grid;
   grid-template-rows: 1fr 1fr;
+  justify-items: center;
   padding: 1rem 2rem;
   gap: 1rem;
+}
+.spotify__cards__wrapper > * {
   opacity: 0;
   translate: 0px -50px;
-  animation: dropIn 1000ms cubic-bezier(0.15, 0.85, 0.38, 1.55) forwards 1150ms;
+}
+@for $i from 1 through 3 {
+  .spotify__cards__wrapper > *:nth-child(#{$i}) {
+    animation: dropIn 1000ms cubic-bezier(0.15, 0.85, 0.38, 1.55) forwards;
+    animation-delay: 1150ms + ($i * 150ms);
+  }
 }
 $delayLength: 100ms;
 @for $i from 1 through 3 {
