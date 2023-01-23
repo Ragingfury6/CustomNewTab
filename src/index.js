@@ -1,19 +1,21 @@
 const linkCards = Array.from(document.querySelectorAll('.link__card'));
-const startingStorage = JSON.parse(localStorage.getItem('data'));
-
+const startingStorageData = localStorage.getItem('data');
+const startingStorage = JSON.parse(startingStorageData || '');
 const modifyLocalStorageCardValue = (key) => {
-  let data = JSON.parse(localStorage.getItem('data')) || {};
+  let data = JSON.parse(localStorage.getItem('data') || '') || {};
   data[key] ? data[key]++ : (data[key] = 1);
   const amount = data[key];
   localStorage.setItem('data', JSON.stringify(data));
-  document
-    .getElementsByName(key)[0]
-    .querySelector('.link__card__usage').textContent = `Used ${amount} ${
-    amount == 1 ? 'time' : 'times'
-  }`;
+  if (document) {
+    document
+      .getElementsByName(key)[0]
+      .querySelector('.link__card__usage').textContent = `Used ${amount} ${
+      amount == 1 ? 'time' : 'times'
+    }`;
+  }
 };
-
 linkCards.forEach((c) => {
+  /**@ts-ignore*/
   VanillaTilt.init(c, {
     max: 15,
     speed: 400,
@@ -25,13 +27,16 @@ linkCards.forEach((c) => {
   if (c.id == 'portfolio') return;
   const usageAmountElement = c.querySelector('.link__card__usage');
   const headingElement = c.querySelector('.heading--subhead');
-  c.setAttribute('name', headingElement.textContent);
-  const amount = startingStorage[headingElement.textContent] || 0;
+  const headingElementTextContent =
+    (headingElement === null || headingElement === void 0
+      ? void 0
+      : headingElement.textContent) || '';
+  c.setAttribute('name', headingElementTextContent);
+  const amount = startingStorage[headingElementTextContent] || 0;
   usageAmountElement.textContent = `Used ${amount} ${
     amount == 1 ? 'time' : 'times'
   }`;
-
   c.addEventListener('click', () => {
-    modifyLocalStorageCardValue(headingElement.textContent);
+    modifyLocalStorageCardValue(headingElementTextContent);
   });
 });
