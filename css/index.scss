@@ -84,7 +84,6 @@
   display: block;
   width: max-content;
   margin-inline: auto;
-  margin-top: 2rem;
   cursor: pointer;
   &__link {
     text-decoration: none;
@@ -103,7 +102,7 @@
   display: grid;
   grid-template-rows: 1fr 1fr;
   justify-items: center;
-  padding: 1rem 2rem;
+  padding: 4rem 2rem 0rem;
   gap: 1rem;
 }
 .spotify__cards__wrapper > * {
