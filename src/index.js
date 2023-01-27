@@ -1,6 +1,8 @@
 const linkCards = Array.from(document.querySelectorAll('.link__card'));
 const startingStorageData = localStorage.getItem('data');
-const startingStorage = JSON.parse(startingStorageData || '');
+let startingStorage = startingStorageData
+  ? JSON.parse(startingStorageData)
+  : {};
 const modifyLocalStorageCardValue = (key) => {
   let data = JSON.parse(localStorage.getItem('data') || '') || {};
   data[key] ? data[key]++ : (data[key] = 1);
